@@ -5,9 +5,9 @@ Case specifically: "say a quick joke about the given image" using the tools:
 - Image to text generation (model: salesforce/blip-image-captioning-base)
 - Templated prompt text generation using LangChain with OpenAI model
 - Text to speech generation (model: espnet/kan-bayashi_ljspeech_vits)
-
-### Next
-- Demonstrate with a live app (via Flask?)
+- Pipelining HuggingFace models for local use
+- Usin HuggingHace InvocationAPIs to run models remotely
+- Quick Streamlit UI with
 
 </br>
 

@@ -15,12 +15,16 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
+import streamlit as st  # quick ui lib
+
 import requests
 import os
+
 
 load_dotenv()   # take environment variables from .env
 HUGGING_FACE_ACCESS_TOKEN = os.getenv("HUGGING_FACE_ACCESS_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
 
 
 ########## Image-to-text
@@ -66,12 +70,34 @@ def text2speech(text):
 
 
 
-
+########## main driver
 def main():
-    img_url = "pic1.jpg"
-    summary = img2text(img_url)
-    story=text2story(summary)
-    text2speech(story)
+
+    # defining ui
+    st.set_page_config(page_title="A Joke about your pic?", page_icon="😁")
+    st.header("AI Image-to-Joke Generator")
+
+    img_uploaded = st.file_uploader("Give me an image...", type="jpg")
+    if img_uploaded:
+        # save the given image
+        img_data = img_uploaded.getvalue()
+        with open(img_uploaded.name, "wb") as file:
+            file.write(img_data)
+
+        # show it
+        st.image(img_uploaded, caption="Your Image", use_column_width=True)
+
+        # run and the models
+        summary = img2text(img_uploaded.name)
+        joke=text2story(summary)
+        text2speech(joke)
+
+        # present results
+        with st.expander("Whats I see in the image:"):
+            st.write(summary)
+        with st.expander("Here's a joke about it..."):
+            st.write(joke)
+        st.audio("audio_res.flac")
 
 if __name__ == "__main__":
     main()
