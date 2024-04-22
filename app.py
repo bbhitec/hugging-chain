@@ -89,19 +89,20 @@ def main():
 
         # run and the models
         st.caption("I see in this image:")
-        with st.spinner(text="Working..."):
+        with st.spinner(text="Working (may take a minute on a free demo)..."):
             summary = img2text(img_uploaded.name)
             st.markdown(summary)
 
         st.caption("Here's a joke about it...")
-        with st.spinner(text="Working..."):
+        with st.spinner(text="Working (may take a minute on a free demo)..."):
             joke=text2joke(summary)
             st.markdown(joke)
 
         st.caption("Hear me read it:")
-        with st.spinner(text="Working..."):
+        with st.spinner(text="Working (may take a minute on a free demo)..."):
             text2speech(joke)
             st.audio("audio_res.flac")
+
 
 if __name__ == "__main__":
     main()
