@@ -8,7 +8,7 @@ Study case: "say a quick joke about the given image" using the tools:
 - Pipelining HuggingFace models for local use
 - Using HuggingHace Invocation APIs to run models remotely
 - Quick app UI with Streamlit UI
-- [ ] deploying demo app to HuggingFace Spaces
+- Deploying demo app to HuggingFace Spaces
 
 </br>
 
@@ -19,7 +19,7 @@ Study case: "say a quick joke about the given image" using the tools:
 
 
 ## Usage/How to run
-Pull and install required packages if needed :
+Pull and install required packages if needed (or see the [`demo`](https://huggingface.co/spaces/vnik/pic-a-joke)):
 
 ```python
 pip install -r requirements.txt
