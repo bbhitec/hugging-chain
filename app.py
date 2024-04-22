@@ -38,7 +38,7 @@ def img2text(url):
 
 
 ########## Joke generation
-def text2story(summary):
+def text2joke(summary):
 
     model = ChatOpenAI(model="gpt-4")
 
@@ -47,13 +47,13 @@ def text2story(summary):
 
     chain = prompt | model | output_parser
 
-    story = chain.invoke({"topic": {summary}})
+    joke = chain.invoke({"topic": {summary}})
 
-    print(story)
-    return(story)
+    print(joke)
+    return(joke)
 
 
-########## Story to Speach
+########## Text to Speach
 def text2speech(text):
     API_URL = "https://api-inference.huggingface.co/models/espnet/kan-bayashi_ljspeech_vits"
     headers = {"Authorization": f"Bearer {HUGGING_FACE_ACCESS_TOKEN}"}
@@ -88,16 +88,20 @@ def main():
         st.image(img_uploaded, caption="Your Image", use_column_width=True)
 
         # run and the models
-        summary = img2text(img_uploaded.name)
-        joke=text2story(summary)
-        text2speech(joke)
+        st.caption("I see in this image:")
+        with st.spinner(text="Working..."):
+            summary = img2text(img_uploaded.name)
+            st.markdown(summary)
 
-        # present results
-        with st.expander("Whats I see in the image:"):
-            st.write(summary)
-        with st.expander("Here's a joke about it..."):
-            st.write(joke)
-        st.audio("audio_res.flac")
+        st.caption("Here's a joke about it...")
+        with st.spinner(text="Working..."):
+            joke=text2joke(summary)
+            st.markdown(joke)
+
+        st.caption("Hear me read it:")
+        with st.spinner(text="Working..."):
+            text2speech(joke)
+            st.audio("audio_res.flac")
 
 if __name__ == "__main__":
     main()
