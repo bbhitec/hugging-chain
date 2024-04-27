@@ -1,6 +1,6 @@
 # Hugging Face Multi-model Utilization
 
-Multi model chaining and with HuggingFace transformers pipelines and LangChain interfacing.
+Multi model chaining with HuggingFace transformers pipelines and LangChain interfacing.
 Study case: "say a quick joke about the given image" using the tools:
 - Image to text generation (model: salesforce/blip-image-captioning-base)
 - Templated prompt text generation using LangChain with OpenAI model
