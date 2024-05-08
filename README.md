@@ -1,12 +1,12 @@
 # Hugging Face Multi-model Utilization
 
-Multi model chaining with HuggingFace transformers pipelines and LangChain interfacing.
-Study case: "say a quick joke about the given image" using the tools:
+Multi model chaining with HuggingFace transformers pipelines and LangChain interfacing. </br>
+Study case: Pick-a-Joke app: "say a quick joke about the given image" using the tools:
 - Image to text generation (model: salesforce/blip-image-captioning-base)
-- Templated prompt text generation using LangChain with OpenAI model
+- Templated prompt text generation using LangChain with OpenAI models
 - Text to speech generation (model: espnet/kan-bayashi_ljspeech_vits)
 - Pipelining HuggingFace models for local use
-- Using HuggingHace Invocation APIs to run models remotely
+- Using HuggingHace Inference APIs to use models remotely via HTTP requests
 - Quick app UI with Streamlit UI
 - Deploying demo app to HuggingFace Spaces
 
