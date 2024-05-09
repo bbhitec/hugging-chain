@@ -16,6 +16,7 @@ Study case: Pick-a-Joke app: "say a quick joke about the given image" using the 
 ![](https://shields.io/badge/-pytorch-4377cb?logo=pytorch)
 ![](https://shields.io/badge/-huggingface-4377cb?logo=huggingface)
 ![](https://shields.io/badge/-langchain-4377cb?logo=langchain)
+![](https://shields.io/badge/-streamlit-4377cb?logo=streamlit)
 
 
 ## Usage/How to run
